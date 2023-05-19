@@ -9,15 +9,13 @@ spec:
   selector:
     matchLabels:
       app: { { .Values.appName } }
-      tier: frontend
   template:
     metadata:
       labels:
         app: { { .Values.appName } }
-        tier: frontend
     spec: # Pod spec
       containers:
         - name: mycontainer
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: 80
+            - containerPort: 3000
